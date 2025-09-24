@@ -6,6 +6,7 @@ import android.view.Surface
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -55,7 +56,10 @@ private fun SetBarColor(color: Color){
         }
     }
 }
-
+@Composable
+fun ThemedText() {
+    val textColor = if (isSystemInDarkTheme()) Color.White else Color.Black
+}
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -75,8 +79,8 @@ fun HomeScreen(){
                 .fillMaxSize()
                 .padding(padding)
         ) {
-            //      WalletSection()
-            //     CardSection()
+            WalletSection()
+            CardSection()
             Spacer(modifier = Modifier.height(16.dp))
             //     FinanceSection()
             //     CurrenciesSection()
