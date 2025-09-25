@@ -2,21 +2,23 @@ package com.example.mudra
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.Surface
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
@@ -40,7 +42,6 @@ class MainActivity : ComponentActivity() {
                 ) {
                     HomeScreen()
 
-
                 }
             }
         }
@@ -60,17 +61,12 @@ private fun SetBarColor(color: Color){
 fun ThemedText() {
     val textColor = if (isSystemInDarkTheme()) Color.White else Color.Black
 }
-
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
 fun HomeScreen(){
     Scaffold(
         bottomBar = {
-
-
-
             BottomNavigationBar( )
         }
     ) { padding ->
@@ -82,8 +78,23 @@ fun HomeScreen(){
             WalletSection()
             CardSection()
             Spacer(modifier = Modifier.height(16.dp))
-            //     FinanceSection()
-            //     CurrenciesSection()
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(IntrinsicSize.Min) // <-- This is the crucial line
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                BudgetTrackers(modifier = Modifier.weight(1f))
+                SpendingExpensesCard(modifier = Modifier.weight(1f))
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            //BudgetAndExpensesSection()
+            CurrencySection()
+
+
         }
     }
 }

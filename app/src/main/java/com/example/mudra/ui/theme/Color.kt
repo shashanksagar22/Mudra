@@ -23,3 +23,4 @@ val OrangeEnd : Color= Color(  0xFFFDA35F)
 
 val GreenStart : Color = Color( 0xFF11B114)
 val GreenEnd : Color = Color( 0xFF52DB59)
+val DarkBlue : Color = Color( 0xFF000A5B)
