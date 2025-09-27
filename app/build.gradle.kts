@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.ui.text)
     implementation(libs.androidx.compose.foundation.layout)
+    implementation(libs.androidx.navigation.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -64,4 +65,6 @@ dependencies {
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.36.0")
 
     implementation("androidx.compose.material:material-icons-extended:1.7.8")
+
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 }

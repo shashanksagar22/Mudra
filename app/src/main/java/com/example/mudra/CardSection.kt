@@ -33,6 +33,7 @@ import com.example.mudra.ui.theme.PurpleEnd
 import com.example.mudra.ui.theme.PurpleStart
 
 val cards = listOf(
+
     Cards(
         cardType = "Visa",
         cardNumber ="2323 5445 7654 9870",
