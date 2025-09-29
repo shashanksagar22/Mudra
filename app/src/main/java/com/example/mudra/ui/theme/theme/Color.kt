@@ -1,4 +1,4 @@
-package com.example.mudra.ui.theme
+package com.example.mudra.ui.theme.theme
 
 import androidx.compose.ui.graphics.Color
 

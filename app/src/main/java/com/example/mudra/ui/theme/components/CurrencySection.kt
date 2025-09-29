@@ -1,4 +1,4 @@
-package com.example.mudra
+package com.example.mudra.ui.theme.components
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 import com.example.mudra.data.Currency
-import com.example.mudra.ui.theme.GreenStart
+import com.example.mudra.ui.theme.theme.GreenStart
 // ADD THIS LINE
 import androidx.compose.ui.graphics.Color
 

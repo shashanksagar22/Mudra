@@ -1,4 +1,4 @@
-package com.example.mudra
+package com.example.mudra.ui.theme.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,13 +24,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.mudra.R
 import com.example.mudra.data.Cards
-import com.example.mudra.ui.theme.BlueEnd
-import com.example.mudra.ui.theme.BlueStart
-import com.example.mudra.ui.theme.OrangeEnd
-import com.example.mudra.ui.theme.OrangeStart
-import com.example.mudra.ui.theme.PurpleEnd
-import com.example.mudra.ui.theme.PurpleStart
+import com.example.mudra.ui.theme.theme.BlueEnd
+import com.example.mudra.ui.theme.theme.BlueStart
+import com.example.mudra.ui.theme.theme.OrangeEnd
+import com.example.mudra.ui.theme.theme.OrangeStart
+import com.example.mudra.ui.theme.theme.PurpleEnd
+import com.example.mudra.ui.theme.theme.PurpleStart
 
 val cards = listOf(
 

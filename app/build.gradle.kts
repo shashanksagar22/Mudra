@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -40,48 +40,55 @@ android {
     buildFeatures {
         compose = true
     }
+
 }
 
 dependencies {
 
+    // Core and Compose Dependencies from BOM
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
+    implementation(platform(libs.androidx.compose.bom)) // Use the BOM
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.material3) // This seems redundant with androidx.compose.material3. Consider removing if not specifically needed.
-    implementation(libs.androidx.compose.ui.text)
-    implementation(libs.androidx.compose.foundation.layout)
+    implementation(libs.androidx.compose.material3) // Use the one from the catalog
     implementation(libs.androidx.navigation.runtime.ktx)
+
+    // Accompanist - This is fine
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.36.0")
+
+    // Icons - This is fine
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
+
+    // ConstraintLayout for Compose - This is fine
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    implementation(libs.play.services.wallet)
+
+    // Define Room version once and use it consistently
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
+    // Coroutines - This is fine
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+
+    // ViewModel - This is fine
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+
+    // Navigation Compose - This is fine
+    implementation("androidx.navigation:navigation-compose:2.7.0")
+
+    // Test Dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(platform(libs.androidx.compose.bom)) // Use BOM for test dependencies too
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.36.0")
-
-    implementation("androidx.compose.material:material-icons-extended:1.7.8")
-
-    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
-
-    // Room dependencies
-    implementation("androidx.room:room-runtime:2.5.2")
-    kapt("androidx.room:room-compiler:2.5.2")
-    implementation("androidx.room:room-ktx:2.5.2")
-
-    // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
-
-    // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
-
-    // Navigation Compose
-    implementation("androidx.navigation:navigation-compose:2.7.0")
 }
+    
